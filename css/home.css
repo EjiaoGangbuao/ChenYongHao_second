@@ -1,0 +1,112 @@
+
+.Home{
+    display: none;
+    background-color: #f6f6f6;
+}
+
+.Home .container{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 62px;
+}
+
+.home-left{
+    width: 694px;
+    height: 300px;
+    background-color: #f6f6f6;
+}
+
+.home-left .fight-against{
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+.home-left .fight-against img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.home-left .main-list{
+    box-shadow: 0 1px 3px rgba(26,26,26,.1);
+    border-radius: 2px;
+    background-color: #fff;
+}
+
+.home-left .main-list .list-tabs{
+    border-bottom: 1px solid #f0f2f7;
+    height: 60px;
+    line-height: 60px;
+    box-sizing: border-box;
+}
+
+.home-left .main-list .list-tabs span{
+    display: inline-block;
+    width: 32px;
+    height: 100%;
+    margin: 0 22px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.home-left .main-list .list-tabs span.active{
+    font-weight: 500;    
+    color: #0084ff;
+}
+
+.home-left .main-list .article-child{
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid #f0f2f7;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+
+.home-left .main-list .article-child h2{
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #1a1a1a;
+}
+
+.home-left .main-list .article-child h2:hover{
+    color: #175199;
+}
+
+.home-left .main-list .article-child p span{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.home-left .main-list .article-child p button{
+    margin-left: 4px;
+    color: #175199;
+}
+
+.home-left .main-list .article-child p button:hover{
+    color: gray;
+}
+
+.home-left .main-list .blue-btn-list .blue-button{
+    color: #0084ff;
+    background: rgba(0,132,255,.1);
+    padding: 0 12px;
+    border-color: transparent;
+}
+
+.home-left .main-list .gray-btn-list{
+    display: inline-block;
+    margin-left: 24px;
+}
+
+.home-left .main-list .gray-btn-list .gray-button{
+    margin-right: 24px;
+}
+
+
+.home-right{
+    width: 296px;
+    height: 300px;
+    background-color: turquoise;
+}

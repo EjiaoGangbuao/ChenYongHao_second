@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知乎</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1776848_koks7cmxho.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/head.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="sign-in">
+        <div class="main">
+            <div class="logo">
+                <img src="../img/login/loginLogo.png" alt="">
+            </div>
+            <div class="login-container">
+                <form>
+                    <div class="tabs"><div class="login-tabs active">密码登录</div></div>
+                    <div class="account"><input type="text" placeholder="手机号或邮箱" name="username"></div>
+                    <div class="password">
+                        <input type="password" placeholder="密码" name="password">
+                        <i></i>
+                    </div>
+                    <div class="login-options">
+                        <button>海外手机号登录</button>
+                        <button>忘记密码？</button>
+                    </div>
+                    <button class="login-button" >登录</button>
+                    <button class="login-button button2">退出登录</button>
+                </form>
+                <div class="login-tip">
+                    未注册手机验证后自动登录，注册即代表同意
+                   <span>《知乎协议》</span><span>《隐私保护指引》</span> 
+                </div>
+                <div class="login-socialLogin">
+                    <span>社交账号登录</span>
+                    <span class="social-login-button">
+                        <button>微信</button>
+                        <button>QQ</button>
+                        <button>微博</button>
+                    </span>
+                </div>
+                <div class="login-other">
+                    <div class="open-jigouhao">开通机构号</div>
+                    <div class="line">|</div>
+                    <div class="download-app">下载知乎APP</div>
+                </div>
+            </div>
+        </div>
+        <footer class="login-footer">
+            <div class="first">
+                <a href="">知乎专栏</a>
+                <a href="">圆桌</a>
+                <a href="">发现</a>
+                <a href="">移动应用</a>
+                <a href="">联系我们</a>
+                <a href="">来知乎工作</a>
+                <a href="">注册机构号</a>
+            </div>
+            <div class="second">
+                <a href="">© 2020 知乎</a>
+                <a href="">京 ICP 证 110745 号</a>
+                <a href="">京 ICP 备 13052560 号 - 1</a>
+                <img src="../img/login/login_police.png" alt="">
+                <a href="">京公网安备 11010802010035 号</a>
+                <a href="">出版物经营许可证</a>
+            </div>
+            <div class="third">
+                <a href="">侵权举报</a>
+                <a href="">网上有害信息举报专区</a>
+                <a href="">儿童色情信息举报专区</a>
+                <a href="">违法和不良信息举报：010-82716601</a>
+            </div>
+        </footer>
+    </div>
+    <div class="head-fixed">
+        <div class="container">
+            <div class="head-logo"><img src="../img/home_head/head_logo_64.png" alt=""></div>
+            <ul class="head-tabs">
+                <li class="active"><span>首页</span></li>
+                <li><span>发现</span></li>
+                <li><span>等你来答</span></li>
+            </ul>
+            <div class="head-search">
+                <form action="">
+                    <div class="input-block">
+                        <input type="text" placeholder="研发的师兄师姐有多帅和漂亮">
+                        <button class="magnify"></button>
+                    </div>
+                    <button class="blue-button">提问</button>
+                </form>
+            </div>
+            <div class="user-info">
+                <div><button class="info-button"></button></div><!--铃铛-->
+                <div class="msg-div">
+                    <button class="info-button"></button><!--气泡-->
+                    <div class="dir-msg">
+                        <div class="user-msg">
+                            <button class="gray-button">我的好友</button>
+                        </div>
+                        <div class="msg-list">
+                            <div class="msg-area">
+                                <div class="avatar"><img src="" alt=""></div>
+                                <div class="msg-info">
+                                    <div class="nickname">尊贵的知乎会员</div>
+                                    <div class="introduction">我是傻逼（样例）</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="msg-footer">
+                            <button class="gray-button">写新私信</button>
+                            <button class="gray-button">查看全部私信</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="avatar-div">
+                    <button class="user-avatar"><img src="" alt=""></button>
+                    <div class="user-menu">
+                        <div class="my-home"><button class="gray-button">我的主页</button></div>
+                        <div><button class="gray-button">设置</button></div>
+                        <div class="check-out"><button class="gray-button">退出</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Home">
+        <div class="container">
+            <div class="home-left">
+                <div class="fight-against"><img src="../img/index/kangjifeiyan.jpg" alt=""></div>
+                <div class="main-list">
+                    <nav class="list-tabs">
+                        <span class="active">推荐</span>
+                        <span>关注</span>
+                        <span>热榜</span>
+                    </nav>
+                    <ul class="article">
+                        <li class="article-child">
+                            <h2>Lorem ipsum dolor sit amet.</h2>
+                            <p>
+                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, adipisci!</span>
+                                <button class="all-article">阅读全文 ∨</button>
+                            </p>
+                            <div class="various-button">
+                                <span class="blue-btn-list">
+                                    <button class="blue-button agree">▲ 赞同 0</button>
+                                    <button class="blue-button disagree">▼</button>
+                                </span>
+                                <span class="gray-btn-list">
+                                    <button class="gray-button comment"><i class="iconfont icon-qipao"></i> 2333 条评论</button>
+                                    <button class="gray-button share"><i class="iconfont icon-zhifeiji"></i> 分享</button>
+                                    <button class="gray-button collection"><i class="iconfont icon-xing"></i> 收藏</button>
+                                    <button class="gray-button like"><i class="iconfont icon-bqxin"></i> 喜欢</button>
+                                    <button class="gray-button more">···</button>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="home-right">
+                <button class="blue-button">测试按钮</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/login.js"></script>
+    <script src="../js/head.js"></script>
+    <script src="../js/home.js"></script>
+</body>
+</html>

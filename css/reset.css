@@ -1,0 +1,35 @@
+﻿*{
+    margin: 0;
+    padding: 0;
+}
+header,footer,section,article,aside,nav{
+    display:block;
+}
+html,body,img{
+    border:0;
+}
+i{
+    font-style:normal;
+}
+li{
+    list-style:none;
+}
+h1,h2,h3,h4,h5,h6{
+    font-size:100%;
+    font-weight:bold;
+}
+a,button{
+    cursor:pointer;
+}
+a,a:hover{
+    text-decoration:none;
+    color:#333;
+}
+body,input,button{
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    border: none;
+    background:#fff;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+}

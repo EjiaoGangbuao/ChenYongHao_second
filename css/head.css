@@ -1,0 +1,250 @@
+
+.head-fixed{
+    width: 100%;
+    height: 52px;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    font-size: 15px;
+    box-shadow: 0 1px 3px rgba(26,26,26,.1);
+    background-color: #fff;
+    display: none;
+}
+
+.head-fixed .container{
+    height: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head-fixed .head-logo img{
+    width: 84px;
+    cursor: pointer;
+}
+
+.head-fixed .head-tabs{
+    display: flex;
+}
+
+.head-fixed .head-tabs li{
+    padding: 0 17px;
+}
+
+.head-fixed .head-tabs li span{
+    display: inline-block;
+    padding: 14px 0;
+    color: #8590a6;
+    cursor: pointer;
+}
+
+.head-fixed .head-tabs li span:hover{
+    color: #444;
+}
+
+.head-fixed .head-tabs li.active span{
+    font-weight: 600;
+    color: #444;
+}
+
+.head-fixed .head-tabs li.active span{
+    position: relative;
+}
+
+.head-fixed .head-tabs li.active span::after{
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    height: 3px;
+    background: #0084ff;
+    content: "";
+}
+
+.head-fixed .head-search{
+    width: 400px;
+    height: 34px;
+}
+
+.head-fixed .head-search form{
+    display:flex;
+}
+
+.head-fixed .head-search .input-block{
+    width: 326px;
+    height: 34px;
+    background: #f6f6f6;
+    padding: 0 0 0 12px;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.head-fixed .head-search input{
+    width: 256px;
+    height: 24px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #f6f6f6;
+}
+
+.head-fixed .head-search button.magnify{
+    width: 18px;
+    height: 18px;
+    background: url(../img/home_head/magnify_32.png) 0/18px no-repeat;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.head-fixed .head-search .blue-button{
+    margin-left: 16px;
+}
+
+.head-fixed .user-info{
+    width: 268px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.head-fixed .user-info .info-button{
+    width: 22px;
+    height: 22px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 45px;
+}
+
+.head-fixed .user-info div:nth-child(1) .info-button{
+    background: url(../img/home_head/bell_32.png) 0/24px no-repeat;
+}
+
+.head-fixed .user-info div:nth-child(1) .info-button:hover{
+    background: url(../img/home_head/bell_hover_32.png) 0/24px no-repeat;
+}
+
+.head-fixed .user-info .msg-div .info-button{
+    background: url(../img/home_head/bubble_32.png) 0/22px no-repeat;
+}
+
+.head-fixed .user-info .msg-div .info-button:hover{
+    background: url(../img/home_head/bubble_hover_32.png) 0/22px no-repeat;
+}
+
+.head-fixed .user-info .msg-div{
+    position: relative;
+}
+
+.head-fixed .user-info .dir-msg{
+    position: absolute;
+    left: -170px;
+    top: 50px;
+    width: 360px;
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    box-shadow: 0 5px 20px rgba(26,26,26,.1);
+    display: none;
+}
+
+.head-fixed .user-info .dir-msg .user-msg button{
+    width: 100%;
+    display: inline-block;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.head-fixed .user-info .dir-msg .msg-list{
+    width: 360px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 350px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.head-fixed .user-info .dir-msg .msg-list .msg-area{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+}
+.head-fixed .user-info .dir-msg .msg-list .msg-area:hover{
+    background-color: #f6f6f6;
+}
+
+.head-fixed .user-info .dir-msg .msg-list .msg-area .avatar{
+    width: 40px;
+    height: 40px;
+    background-color: pink;
+}
+
+.head-fixed .user-info .dir-msg .msg-list .msg-area .msg-info{
+    width: 274px;
+    height: 44px;
+    margin-left: 16px;
+    overflow: hidden;
+}
+
+
+.head-fixed .user-info .dir-msg .msg-list .msg-area .msg-info .introduction{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.head-fixed .user-info .dir-msg .msg-footer{
+    width: 328px;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.head-fixed .user-info .user-avatar{
+    width: 30px;
+    height: 30px;
+    background-color: #008c8c;
+}
+
+.head-fixed .user-info .avatar-div{
+    position: relative;
+}
+
+.head-fixed .user-info .avatar-div img{
+    width: 100%;
+    height: 100%;
+}
+
+.head-fixed .user-info .avatar-div .user-menu{
+    position: absolute;
+    left: -45px;
+    top: 50px;
+    width: 118px;
+    height: 108px;
+    padding: 6px 0;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    border-radius: 4px;
+    box-shadow: 0 5px 20px rgba(26,26,26,.1);
+    display: none;
+}
+
+.head-fixed .user-info .avatar-div .user-menu div{
+    width: 78px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 20px;
+}
+.head-fixed .user-info .avatar-div .user-menu div:hover,
+.head-fixed .user-info .avatar-div .user-menu div:hover button{
+    background-color: #f6f6f6;
+}
+

@@ -1,0 +1,269 @@
+@media (min-width: 1024px){
+    html{font-size: 18px}
+}
+
+@media (min-width: 1100px) {
+    html{font-size: 20px}
+}
+@media (min-width: 1280px) {
+    html{font-size: 22px;}
+}
+
+@media (min-width: 1366px) {
+    html{font-size: 24px;}
+}  
+
+@media (min-width: 1440px) {
+    html{font-size: 25px;}
+} 
+
+@media (min-width: 1680px) {
+    html{font-size: 28px;}
+} 
+@media (min-width: 1920px) {
+    html{font-size: 33px;}
+} 
+
+div.sign-in{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: url(../img/login/sign_bg.png) 0/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 999;
+    /* display: none; */
+}
+
+.sign-in .main{
+    width: 14.2rem;
+    margin-top: 2.15rem;
+    min-width: 250px;
+}
+
+.sign-in .main .logo{
+    text-align: center;
+    margin-bottom: 0.85rem;
+}
+
+.sign-in .main .logo img{
+    width: 4.6rem;
+}
+
+.sign-in div.login-container{
+    font-size: 0.5rem;
+    background-color: #fff;
+    padding: 0 0.85rem;
+    box-shadow: 0 0.03rem 0.11rem rgba(26,26,26,0.1);
+    border-radius: 0.07rem;
+}
+
+.sign-in .main form{
+    padding: 0 0 1.28rem 0;
+}
+
+.sign-in .main .login-tabs{
+    display: inline-block;
+    color: #444;
+    font-size: 0.58rem;
+    line-height: 2.14rem;
+    height: 2.14rem;
+    margin-right: 0.85rem;
+    cursor: pointer;
+}
+
+.sign-in .main .login-tabs.active{
+    color: #1a1a1a;
+    font-weight: 600;
+    position: relative;
+}
+
+.sign-in .main .login-tabs.active::after{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    height: 0.11rem;
+    background-color: #0084ff;
+}
+
+.sign-in .main .login-container .account{
+    margin-top: 0.85rem;
+}
+
+.sign-in .main .login-container input{
+    height: 1.7rem;
+    width: 100%;
+    border-bottom: 0.03rem solid #ebebeb;
+}
+
+.sign-in .main .login-container input::placeholder{
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+}
+
+.sign-in .main .login-container .password{
+    margin-top: 0.43rem;
+    position: relative;
+}
+
+.sign-in .main .login-container .password i{
+    width: 0.85rem;
+    height: 0.85rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    background: url(../img/login/login_eye_32.png) 0 /0.79rem no-repeat;
+}
+
+.sign-in .main .login-container .password i:hover{
+    background: url(../img/login/login_eye_hover_32.png) 0 /0.79rem no-repeat;
+    cursor: pointer;
+}
+
+.sign-in .main .login-container .login-options{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.43rem;
+    align-items: center;
+}
+
+.sign-in .main .login-container .login-options button:first-child{
+    color:#175199;
+}
+
+.sign-in .main .login-container .login-options button:first-child:hover{
+    color: #76839b;
+}
+
+.sign-in .main .login-container .login-options button:last-child{
+    color: #8590a6;    
+}
+
+.sign-in .main .login-container .login-options button:last-child:hover{
+    color: grey;
+}
+
+.sign-in .main .login-container .login-button{
+    text-align: center;
+    height: 1.29rem;
+    line-height: 1.29rem;
+    display: block;
+    width: 100%;
+    margin-top: 1.1rem;
+    border-radius: 0.11rem;
+    background-color: #0084ff;
+    color: #fff;
+}
+
+.sign-in .main .login-container .login-button:hover{
+    background-color: #0077e6;
+}
+
+.sign-in .main .login-container .login-tip{
+    color: gray;
+    font-size: 0.46rem;
+    border-bottom: 0.03rem solid #ebebeb;
+    padding: 0 0 0.43rem 0;
+}
+.sign-in .main .login-container .login-tip span{
+    cursor: pointer;
+}
+
+.sign-in .main .login-container .login-socialLogin,
+.sign-in .main .login-container .login-socialLogin button{
+    color: gray;
+}
+
+.sign-in .main .login-container .login-socialLogin{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.71rem 0;
+    font-size: 0.53rem;
+}
+
+.sign-in .main .login-container .login-socialLogin button{
+    width: 2.5rem;
+    text-align: right;
+    height: 1.14rem;
+}
+
+.sign-in .main .login-container .login-socialLogin button:nth-child(1){
+    background: url(../img/login/login_wechat_16.png) 0 0.32rem/0.57rem no-repeat;
+}
+.sign-in .main .login-container .login-socialLogin button:nth-child(2){
+    background: url(../img/login/login_qq_16.png) 5px 0.32rem/0.57rem no-repeat;
+}
+.sign-in .main .login-container .login-socialLogin button:nth-child(3){
+    background: url(../img/login/login_weibo_16.png) 0 0.32rem/0.57rem no-repeat;
+}
+
+.sign-in .main .login-container .login-other{
+    background-color: #F6F6F6;
+    width: 100%;
+    position: relative;
+    left: -0.85rem;
+    padding: 0 0.85rem;
+    color: #0084FF;
+    display: flex;
+    justify-content: space-between;
+    height: 2.14rem;
+    align-items: center;
+    font-size: 0.54rem;
+    text-align: right;
+}
+
+.sign-in .main .login-container .login-other .line{
+    color: #EBEBEB;
+    width: auto;
+}
+
+.sign-in .main .login-container .login-other div:first-child{
+    width: 3.75rem;
+    background: url(../img/login/jigouhao_32.png) 0/0.71rem no-repeat;
+}
+
+.sign-in .main .login-container .login-other div:last-child{
+    width: 4.29rem;
+    background: url(../img/login/zhi_32.png) 0/0.71rem no-repeat;
+}
+
+.sign-in footer{
+    color: #fff;
+    font-size: 0.43rem;
+    margin-top: 1.79rem;
+    text-align: center;
+}
+
+.sign-in footer div{
+    margin-bottom: 0.18rem;
+}
+
+.sign-in footer a{
+    color: #fff;
+    font-size: 0.43rem;
+}
+
+.sign-in footer a::after{
+    content: " \B7 ";
+    white-space: pre;
+    display: inline-block;
+}
+
+.sign-in footer a:last-child::after{
+    content: none;
+}
+
+.sign-in footer a:hover{
+    text-decoration: underline;
+}
+
+.sign-in footer .second a:first-child{
+    cursor: inherit;
+    text-decoration: none;
+}

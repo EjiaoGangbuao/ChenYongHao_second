@@ -1,0 +1,44 @@
+
+html{
+    background-color: #f6f6f6;
+}
+
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.blue-button{
+    height: 34px;
+    padding: 0 14px;
+    color: #fff;
+    background-color: #0084ff;
+    border: 1px solid #0084ff;
+    border-radius: 3px;
+}
+
+.blue-button:hover{
+    border-color: #0077e6;
+    background-color: #0077e6;
+}
+
+
+.gray-button{
+    font-size: 14px;
+    color: #8590a6;
+    cursor: pointer;
+}
+
+.gray-button:hover{
+    color: #76839b;
+}
+
+.gray-button i{
+    font-size: 14px;
+}
