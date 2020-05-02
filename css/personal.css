@@ -1,0 +1,198 @@
+
+.personal{
+    margin-top: 60px;
+    background-color: #f6f6f6;
+    display: none;
+}
+
+.personal .container{
+    box-shadow: 0 1px 3px rgba(26,26,26,.1);
+    border-radius: 2px;
+    box-sizing: border-box;
+    padding: 0 16px;
+    margin: 14px auto;
+    font-size: 15px;
+    background-color: #fff;
+    position: relative;
+}
+
+.personal .personal-background{
+    background-color: #f6f6f6;
+    width: 1000px;
+    margin-left: -16px;
+    height: 240px;
+    overflow: hidden;
+}
+
+.personal .personal-background img{
+    width: 100%;
+    transform: translateY(-25%);
+}
+
+.personal .personal-info{
+    background-color: #fff;
+    padding: 16px 0 0 32px;
+    margin-left: 164px;
+    position: relative;
+}
+
+.personal .personal-avatar-container{
+    position: absolute;
+    left: -160px;
+    top: -30px;
+    width: 168px;
+    height: 168px;
+    background-color: pink;
+    border: 4px solid #fff;
+    border-radius: 8px; 
+}
+
+.personal .personal-avatar-container .change-avatar{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    top: 120%;
+}
+.personal .personal-avatar-container .change-avatar input{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 65%;
+}
+
+.personal .personal-avatar-container .change-avatar .input-container{
+    display: inline-block;
+    width: 65%;
+    border: 1px soild #ebebeb;
+    border-radius: 3px;
+    background-color: #0084ff;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+}
+
+.personal .personal-avatar-container .change-avatar button{
+    width: 20%;
+    background-color: #0084ff;
+    border: 1px soild #ebebeb;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.personal .personal-avatar-container img{
+    width: 100%;
+    height: 100%;
+}
+
+.personal .personal-nickname{
+    font-size: 26px;
+    font-weight: 600;
+    padding-right: 106px;
+    margin-bottom: 16px;
+}
+
+.personal .personal-nickname h2{
+    display: inline-block;
+}
+
+.personal .personal-content-child{
+    padding-bottom: 100px;
+    margin-top: 10px;
+}
+
+.personal .personal-info-child{
+    padding: 30px 0;
+    border-bottom: 1px solid #ebebeb;
+    position: relative;
+}
+
+.personal .personal-info-child span{
+    display: inline-block;
+    line-height: 36px;
+}
+
+.personal .personal-info-child span.info-title{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 600;
+}
+
+.personal .personal-info-child .personal-every-info{
+    padding: 0 64px 0 140px;
+}
+.personal span.writeOrChange{
+    color: #175199;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.personal .personal-input{
+    padding: 0 64px 0 140px;
+    display: none;
+}
+
+.personal .personal-input input{
+    height: 24px;
+    line-height: 24px;
+    display: block;
+    width: 85%;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    font-size: 14px;
+    padding: 4px 10px;
+}
+
+.personal .personal-input input.radio{
+    width: auto;
+    display: inline-block;
+}
+
+.personal .personal-input .blue-button{
+    margin-top: 24px;
+}
+
+.personal .personal-input .blue-button.cancel{
+    color: #8590a6;
+    border-color: #8590a6;
+    background-color: #fff;
+}
+
+.personal .personal-input .blue-button.cancel:hover{
+    background-color: rgba(133,144,166,.06);
+}
+
+.personal .personal-input .personal-radio-container{
+    display: flex;
+}
+
+.personal .personal-input .personal-radio-container input{
+    margin-right: 5px;
+}
+.personal .personal-input .personal-radio-container input:nth-child(2){
+    margin-left: 50px;
+}
+
+.personal .personal-introduction .personal-input textarea{
+    height: 60px;
+    width: 85%;
+    display: block;
+    resize: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #f6f6f6;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    padding: 4px 10px;
+}
+
+.personal .back-to-index{
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+}

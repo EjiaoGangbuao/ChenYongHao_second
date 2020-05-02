@@ -8,6 +8,8 @@ function cancelHandler(event){
     }
 }
 
+    axios.defaults.withCredentials = true;
+
     var signIn = document.querySelector(".sign-in"),
         signInBtn = document.querySelector(".sign-in .login-button");
 
@@ -43,6 +45,11 @@ function cancelHandler(event){
                 
 
                 outFriends(myId); //登录成功--加载好友列表，该函数代码在head.js里
+                getUserInfo();
+                if( articleFlags == false){
+                    articleFlags = true;
+                    getArticle();
+                }
             }else{
                 console.log(res.data);
                 console.log(res.status);
@@ -63,6 +70,7 @@ function cancelHandler(event){
             signIn.style.display = "flex";
             homeIndex.style.display = "none";
             headFixed.style.display = "none";
+            personal.style.display = "none";
             nowUsername = "";
             nowPassword = "";
         })

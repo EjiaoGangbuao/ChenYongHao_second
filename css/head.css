@@ -179,7 +179,7 @@
     background-color: #f6f6f6;
 }
 
-.head-fixed .user-info .dir-msg .msg-list .msg-area .avatar{
+.head-fixed .user-info .dir-msg .msg-list .msg-area .avatar img{
     width: 40px;
     height: 40px;
     background-color: pink;
@@ -211,7 +211,6 @@
 .head-fixed .user-info .user-avatar{
     width: 30px;
     height: 30px;
-    background-color: #008c8c;
 }
 
 .head-fixed .user-info .avatar-div{

@@ -6,10 +6,12 @@
     <title>知乎</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1776848_koks7cmxho.css">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1776848_2lv8c99p9w6.css">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/head.css">
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/personal.css">
+    <script src="../js/jQuery.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
@@ -30,7 +32,7 @@
                         <button>海外手机号登录</button>
                         <button>忘记密码？</button>
                     </div>
-                    <button class="login-button" >登录</button>
+                    <button class="login-button">登录</button>
                     <button class="login-button button2">退出登录</button>
                 </form>
                 <div class="login-tip">
@@ -104,13 +106,13 @@
                             <button class="gray-button">我的好友</button>
                         </div>
                         <div class="msg-list">
-                            <div class="msg-area">
+                            <!-- <div class="msg-area">
                                 <div class="avatar"><img src="" alt=""></div>
                                 <div class="msg-info">
                                     <div class="nickname">尊贵的知乎会员</div>
                                     <div class="introduction">我是傻逼（样例）</div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="msg-footer">
                             <button class="gray-button">写新私信</button>
@@ -140,26 +142,64 @@
                         <span>热榜</span>
                     </nav>
                     <ul class="article">
-                        <li class="article-child">
+                        <!-- <li class="article-child">
                             <h2>Lorem ipsum dolor sit amet.</h2>
                             <p>
-                                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, adipisci!</span>
+                                <span class="article-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, adipisci!</span>
                                 <button class="all-article">阅读全文 ∨</button>
                             </p>
                             <div class="various-button">
                                 <span class="blue-btn-list">
-                                    <button class="blue-button agree">▲ 赞同 0</button>
+                                    <button class="blue-button agree">
+                                        <span class="agree-text">▲ 赞同</span>
+                                        <span class="agree-num">0</span>
+                                    </button>
                                     <button class="blue-button disagree">▼</button>
                                 </span>
                                 <span class="gray-btn-list">
-                                    <button class="gray-button comment"><i class="iconfont icon-qipao"></i> 2333 条评论</button>
+                                    <button class="gray-button comment">
+                                        <i class="iconfont icon-qipao"></i>
+                                        <span class="comment-num">2333</span>
+                                        <span class="comment-text">条评论</span>
+                                    </button>
                                     <button class="gray-button share"><i class="iconfont icon-zhifeiji"></i> 分享</button>
                                     <button class="gray-button collection"><i class="iconfont icon-xing"></i> 收藏</button>
                                     <button class="gray-button like"><i class="iconfont icon-bqxin"></i> 喜欢</button>
                                     <button class="gray-button more">···</button>
                                 </span>
                             </div>
-                        </li>
+                            <div class="comment-all">
+                                <div class="comment-head">
+                                    <div><span class="comment-head-num">2333</span><span> 条评论</span></div>
+                                </div>
+                                <ul class="comment-list">
+                                    <li>
+                                        <div class="info">
+                                            <img src="" alt="" class="commentator-avatar">
+                                            <div class="commentator-nickname">ccc</div>
+                                        </div>
+                                        <div class="comment-content">神评论</div>
+                                        <div class="gray-btn-list">
+                                            <button class="gray-button like-comment">
+                                                <i class="iconfont icon-zan"></i>
+                                                <span class="comment-like-num">100</span>
+                                            </button>
+                                            <button class="gray-button dislike-comment">
+                                                <i class="iconfont icon-cai"></i>
+                                            </button>
+                                            <button class="gray-button">
+                                                <i class="iconfont icon-liaotianxinxi"></i>
+                                                <span>查看回复</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="write-comment">
+                                    <div class="comment-input"><input type="text" placeholder="写下你的评论..." class="comment-input-child"></div>
+                                    <button class="blue-button  submit-comment">发布</button>
+                                </div>
+                            </div>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -168,8 +208,96 @@
             </div>
         </div>
     </div>
+    <div class="personal">
+        <div class="container">
+            <div class="personal-background">
+                <img src="../img/universe.jpeg" alt="">
+            </div>
+            <div class="personal-info">
+                <div class="personal-avatar-container">
+                    <img src="" alt=""  class="personal-avatar">
+                    <div class="change-avatar"  >
+                        <div class="input-container">
+                            <input type="file" title="点击修改头像" id="select-avatar">
+                            点击选择图片
+                        </div>
+                        <button id="submit-avatar">上传</button>
+                    </div>
+                </div>
+                <div class="personal-info-content">
+                    <div class="personal-nickname">
+                        <h2 class="personal-every-info">昵称</h2>
+                        <span class="writeOrChange"><i class="iconfont icon-bi"></i> 修改</span>
+                        <div class="personal-input">
+                            <input type="text" class="input-elem">
+                            <button class="blue-button save-input">保存</button>
+                            <button class="blue-button cancel-input">取消</button>
+                        </div>
+                    </div>
+                    <div class="personal-content-child">
+                        <div class="personal-info-child personal-gender">
+                            <div class="personal-write-btn">
+                                <span class="info-title">性别</span>
+                                <span class="gender-child personal-every-info">未知</span>
+                                <span class="writeOrChange"><i class="iconfont icon-bi"></i> 修改</span>
+                            </div>
+                            <div class="personal-input">
+                                <div class="personal-radio-container">
+                                    <input type="radio" name="gender" class="radio input-elem"> 男
+                                    <input type="radio" name="gender" class="radio"> 女
+                                </div>
+                                <button class="blue-button save-input">保存</button>
+                                <button class="blue-button cancel-input">取消</button>
+                            </div>
+                        </div>
+                        <div class="personal-info-child one-sentence">
+                            <span class="info-title">一句话介绍</span>
+                            <div class="personal-write-btn">
+                                <span class="one-sentence-child personal-every-info"></span>
+                                <span class="writeOrChange"><i class="iconfont icon-bi"></i> 修改</span>
+                            </div>
+                            <div class="personal-input">
+                                <input type="text" class="input-elem">
+                                <button class="blue-button save-input">保存</button>
+                                <button class="blue-button cancel-input">取消</button>
+                            </div>
+                        </div>
+                        <div class="personal-info-child personal-professional">
+                            <span class="info-title">所在行业</span>
+                            <div class="personal-write-btn">
+                                <span class="professional-child personal-every-info"></span>
+                                <span class="writeOrChange"><i class="iconfont icon-bi"></i> 修改</span>
+                            </div>
+                            <div class="personal-input">
+                                <input type="text" class="input-elem">
+                                <button class="blue-button save-input">保存</button>
+                                <button class="blue-button cancel-input">取消</button>
+                            </div>
+                        </div>
+                        <div class="personal-info-child personal-introduction">
+                            <span class="info-title">个人简介</span>
+                            <div class="personal-write-btn">
+                                <span class="introduction-child personal-every-info"></span>
+                                <span class="writeOrChange"><i class="iconfont icon-bi"></i> 修改</span>
+                            </div>
+                            <div class="personal-input">
+                                <textarea name="" id="" cols="30" rows="10" class="input-elem"></textarea>
+                                <button class="blue-button save-input">保存</button>
+                                <button class="blue-button cancel-input">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="back-to-index">
+                <button class="blue-button">返回首页</button>
+            </div>
+        </div>
+        <div id="test" style="cursor: pointer; background-color: pink; width: 100px; height: 30px;">测试按钮</div>
+    </div>
     <script src="../js/login.js"></script>
     <script src="../js/head.js"></script>
     <script src="../js/home.js"></script>
+    <script src="../js/personal.js"></script>
 </body>
 </html>

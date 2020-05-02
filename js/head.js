@@ -7,30 +7,51 @@ function getStyle(elem, prop){
     }
 }
 
+// 阻止冒泡
+function stopBubble (event){
+    if(event.stopPropagation){
+        event.stopPropagation();
+    }else{
+        event.cancelBubble = true;
+    }
+}
+
 var headFixed = document.querySelector(".head-fixed");
 
 // 首页右上角私信气泡，点击出现好友列表
     var bubbleMsg = document.querySelector(".head-fixed .user-info .msg-div .info-button"),
         dirMsg = document.querySelector(".head-fixed .user-info .dir-msg");
 
-    bubbleMsg.onclick = function(){
+    bubbleMsg.onclick = function(e){
         if(getStyle(dirMsg,"display") == "none"){
             dirMsg.style.display = "block";
         }else{
             dirMsg.style.display = "none";
         }
+        stopBubble(e);
+        headUserMenu.style.display = "none";
+    }
+
+    dirMsg.onclick = function(e){
+        stopBubble(e);
     }
 
 // 首页右上角头像，点击出现用户菜单
     var avaterDiv = document.querySelector(".head-fixed .user-info .avatar-div"),
         headUserMenu = document.querySelector(".head-fixed .user-info .avatar-div .user-menu");
 
-    avaterDiv.onclick = function(){
+    avaterDiv.onclick = function(e){
         if(getStyle(headUserMenu,"display") == "none"){
             headUserMenu.style.display = "block";
         }else{
             headUserMenu.style.display = "none";
         }
+        stopBubble(e);
+        dirMsg.style.display = "none";
+    }
+
+    headUserMenu.onclick = function(e){
+        stopBubble(e);
     }
 
     // 用户菜单里的退出按钮
@@ -97,8 +118,16 @@ var headFixed = document.querySelector(".head-fixed");
             var FriLength = res.data.friends.length;
 
             for(var i = 0; i < FriLength; i++){
-                addFriends(res.data.friends[i].avater, res.data.friends[i].nickname, res.data.friends[i].introduction);
+                addFriends(res.data.friends[i].avatar, res.data.friends[i].nickname, res.data.friends[i].introduction);
             }
         })
     }
 
+    var headAvatarImg = document.querySelector(".head-fixed .user-info .avatar-div img");
+
+    var htmlElem = document.getElementsByTagName("html")[0];
+
+    htmlElem.onclick = function(){
+        headUserMenu.style.display = "none";
+        dirMsg.style.display = "none";
+    }
