@@ -87,7 +87,6 @@
 
         var formData = new FormData();
         formData.append("image1",file);
-
         $.ajax({
             type:'post',
             url:'http://47.97.204.234:3000/user/alterAvatar',
@@ -95,7 +94,7 @@
             processData:false,
             contentType:false,
             xhrFields: {
-                withCredentials: true
+                withCredentials:true
             },
 
             success:function(data){

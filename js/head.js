@@ -119,6 +119,7 @@ var headFixed = document.querySelector(".head-fixed");
 
             for(var i = 0; i < FriLength; i++){
                 addFriends(res.data.friends[i].avatar, res.data.friends[i].nickname, res.data.friends[i].introduction);
+                friendsId.push(res.data.friends[i].userId);
             }
         })
     }

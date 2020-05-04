@@ -1,7 +1,11 @@
 
     var homeIndex = document.querySelector(".Home");
+    
+    // 文章ID数组
+    var articleIdArray = []; 
 
-    var articleIdArray = []; // 文章ID数组
+    //好友id
+    var friendsId = []; 
 
     //同一篇文章下的评论的父元素
     var commentListUl = document.getElementsByClassName("comment-list"); 
@@ -25,6 +29,16 @@
 
     // 判断是否已经生成文章，防止退出-重新登录后又生成一遍
     var articleFlags = false;
+
+    // 评论id二维数组，行是第几篇文章，列是评论
+    var commentIdArray = new Array(19);
+    for(var i = 0; i < commentIdArray.length; i++){
+        commentIdArray[i] = [];
+    }
+
+    //发布评论
+    var submitComBtn = document.getElementsByClassName("submit-comment"),
+        comInput = document.getElementsByClassName("comment-input-child");
 
     // 检查登录状态
     function checkLogin(){
@@ -152,6 +166,7 @@
                         })
                         .then(function(res){
                             console.log(res.data);
+                            location.reload();
                         })
                     }
                 
@@ -367,11 +382,11 @@
 
 //---------------------------------------------------
 
-    // 关于每条评论的各个元素，头像、昵称、内容、评论点赞数.
-    var commentatorAvatar = document.getElementsByClassName("commentator-avatar"),
-        commentatorNickname = document.getElementsByClassName("commentator-nickname"),
-        commentContent = document.getElementsByClassName("comment-content"),
-        commentLikeNum = document.getElementsByClassName("comment-like-num");
+    // // 关于每条评论的各个元素，头像、昵称、内容、评论点赞数.
+    // var commentatorAvatar = document.getElementsByClassName("commentator-avatar"),
+    //     commentatorNickname = document.getElementsByClassName("commentator-nickname"),
+    //     commentContent = document.getElementsByClassName("comment-content"),
+    //     commentLikeNum = document.getElementsByClassName("comment-like-num");
 
     var articleChild = document.getElementsByClassName("article-child");
 
@@ -419,25 +434,29 @@
 
     // 生成每一条评论
     function addEveryComment(i,j){
+        //创建元素
         var commentEveryLi = document.createElement("li"),
             infoDiv = document.createElement("div"),
             infoImg = document.createElement("img"),
             infoNickname = document.createElement("div"),
             commentContent = document.createElement("div"),
 
-            grayBtnList = document.createElement("div"),
-
-            likeComBtn = document.createElement("button"),
+            grayBtnList = document.createElement("div");
+        // 点赞按钮
+        var likeComBtn = document.createElement("button"),
             iZan = document.createElement("i"),
-            comLikeNum = document.createElement("span"),
-
-            dislikeComBtn = document.createElement("button"),
-            iCai = document.createElement("i"),
-
-            openResBtn = document.createElement("button"),
+            comLikeNum = document.createElement("span");
+        // 点踩按钮
+        var dislikeComBtn = document.createElement("button"),
+            iCai = document.createElement("i");
+        // 查看回复按钮
+        var openResBtn = document.createElement("button"),
             iRes = document.createElement("i"),
             resSpan = document.createElement("span");
+        //删除按钮
+        var delComBtn = document.createElement("button");
 
+        //设置类名、id等
             infoDiv.setAttribute("class","info");
             infoImg.setAttribute("class","commentator-avatar");
             infoNickname.setAttribute("class","commentator-nickname");
@@ -445,32 +464,63 @@
             commentContent.setAttribute("class","comment-content");
 
             grayBtnList.setAttribute("class","gray-btn-list");
-            likeComBtn.setAttribute("class","gray-button like-num");
+            likeComBtn.setAttribute("class","gray-button like-comment");
             iZan.setAttribute("class","iconfont icon-zan");
             comLikeNum.setAttribute("class","comment-like-num");
+            comLikeNum.setAttribute("id","comment-like-num" + i + j);
             dislikeComBtn.setAttribute("class","gray-button dislike-comment");
             openResBtn.setAttribute("class","gray-button");
             iRes.setAttribute("class","iconfont icon-liaotianxinxi");
             iCai.setAttribute("class","iconfont icon-cai");
+            delComBtn.setAttribute("class","gray-button delete-comment");
 
         resSpan.innerHTML = "查看回复";
+        delComBtn.innerHTML = "删除";
 
-        axios.get("http://47.97.204.234:3000/article/getComments",{
-            params : {
+        // 获取评论
+        var myComment = false;
+        $.ajax({
+            type : "get",
+            url : "http://47.97.204.234:3000/article/getComments",
+            data : {
                 userId : myId,
                 articleId : articleIdArray[i],
+            },
+            async : false,
+            success : function(data){
+                console.log(data);
+                infoImg.setAttribute("src",data.comments[j].avatar);
+                infoNickname.innerHTML = data.comments[j].nickname;
+                commentContent.innerHTML = data.comments[j].content;
+                comLikeNum.innerHTML = data.comments[j].likeNum;
+
+                commentIdArray[i].push(data.comments[j].commentId);
+
+                if( data.comments[j].userId == myId){
+                    myComment = true;
+                }
             }
         })
-        .then(function(res){
-            console.log(res.data);
-            infoImg.setAttribute("sec",res.data.comments[j].avatar);
-            infoNickname.innerHTML = res.data.comments[j].nickname;
-            commentContent.innerHTML = res.data.comments[j].content;
-            comLikeNum.innerHTML = res.data.comments[j].likeNum;
-        })
-        .catch(function(error){
-            console.log(error);
-        })
+
+
+        // axios.get("http://47.97.204.234:3000/article/getComments",{
+        //     params : {
+        //         userId : myId,
+        //         articleId : articleIdArray[i],
+        //     }
+        // })
+        // .then(function(res){
+        //     console.log(res.data);
+        //     infoImg.setAttribute("src",res.data.comments[j].avatar);
+        //     infoNickname.innerHTML = res.data.comments[j].nickname;
+        //     commentContent.innerHTML = res.data.comments[j].content;
+        //     comLikeNum.innerHTML = res.data.comments[j].likeNum;
+
+        //     commentIdArray[i].push(res.data.comments[j].commentId);
+        // })
+        // .catch(function(error){
+        //     console.log(error);
+        // })
 
         infoDiv.appendChild(infoImg);
         infoDiv.appendChild(infoNickname);
@@ -484,21 +534,158 @@
         grayBtnList.appendChild(dislikeComBtn);
         grayBtnList.appendChild(openResBtn);
 
+        if( myComment == true ){
+            grayBtnList.appendChild(delComBtn);
+        }
+
         commentEveryLi.appendChild(infoDiv);
         commentEveryLi.appendChild(commentContent);
         commentEveryLi.appendChild(grayBtnList);
 
+        likeComBtn.onclick = function(){
+            if( checkLikeComment(i,j) == true ){
+                axios.post("http://47.97.204.234:3000/article/likeComment",{
+                    userId : myId,
+                    commentId : commentIdArray[i][j],
+                    like : false,
+                })
+                .then(function(res){
+                    console.log(res.data);
+                    updateComNum(i,j);
+                })
+                .catch(function(err){
+                    console.log(err);
+                })
+            }else{
+                axios.post("http://47.97.204.234:3000/article/likeComment",{
+                    userId : myId,
+                    commentId : commentIdArray[i][j],
+                    like : true,
+                })
+                .then(function(res){
+                    console.log(res.data);
+                    updateComNum(i,j);
+                })
+                .catch(function(err){
+                    console.log(err);
+                })
+            }
+        }
+
+        dislikeComBtn.onclick = function(){
+            if( checkDislikeComment(i,j) == true ){
+                axios.post("http://47.97.204.234:3000/article/dislikeComment",{
+                    userId : myId,
+                    commentId : commentIdArray[i][j],
+                    dislike : false,
+                })
+                .then(function(res){
+                    console.log(res.data);
+                    updateComNum(i,j);
+                })
+                .catch(function(err){
+                    console.log(err);
+                })
+            }else{
+                axios.post("http://47.97.204.234:3000/article/dislikeComment",{
+                    userId : myId,
+                    commentId : commentIdArray[i][j],
+                    dislike : true,
+                })
+                .then(function(res){
+                    console.log(res.data);
+                    updateComNum(i,j);
+                })
+                .catch(function(err){
+                    console.log(err);
+                })
+            }
+        }
+
+        delComBtn.onclick = function(){
+            axios.delete("http://47.97.204.234:3000/article/deleteComment",{
+                data : {
+                    userId : myId,
+                    commentId : commentIdArray[i][j],
+                }
+            })
+            .then(function(res){
+                console.log(res.data);
+                location.reload();
+            })
+            .catch(function(err){
+                console.log(err);
+            })
+        }
         return commentEveryLi;
     }
 
-    //发布评论
-    var submitComBtn = document.getElementsByClassName("submit-comment"),
-        comInput = document.getElementsByClassName("comment-input-child");
+
+    // 判断是否点赞评论
+    function checkLikeComment(i,j){   //第i篇文章,第j条评论
+        var sign = false;
+
+        $.ajax({
+            url : "http://47.97.204.234:3000/article/getComments",
+            type : "get",
+            async: false,
+            data : {
+                userId : myId,
+                articleId : articleIdArray[i],
+            },
+            success : function(data){
+                if(data.comments[j].liked == true){
+                    sign = true;
+                    console.log(data);
+                }
+            }
+        })
+
+        return sign;
+    }
+
+    // 判断评论是否点踩
+    function checkDislikeComment(i,j){
+        var sign = false;
+
+        $.ajax({
+            url : "http://47.97.204.234:3000/article/getComments",
+            type : "get",
+            async: false,
+            data : {
+                userId : myId,
+                articleId : articleIdArray[i],
+            },
+            success : function(data){
+                if(data.comments[j].disliked == true){
+                    sign = true;
+                    console.log(data);
+                }
+            }
+        })
+
+        return sign;
+    }
+    // 更新评论数
+    function updateComNum(i,j){
+        axios.get("http://47.97.204.234:3000/article/getComments",{
+            params : {
+                userId : myId,
+                articleId : articleIdArray[i],
+            }
+        })
+        .then(function(res){
+            var commentLikeNum = document.getElementById("comment-like-num" + i + j);
+            commentLikeNum.innerHTML = res.data.comments[j].likeNum;
+            console.log(res.data);
+        })
+    }
     
 //---------------------------------------------------
     // 测试用 
     var testBtn = document.querySelector(".home-right .blue-button");
 
     testBtn.onclick = function(){
-        addCommentInArticle(0,0);
+        console.log(checkLikeComment(0,0));
+        
     }
