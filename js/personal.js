@@ -1,4 +1,4 @@
-
+/*----------------个人主页---------------- */
     var personal = document.getElementsByClassName("personal")[0];
     var writeOrChange = document.getElementsByClassName("writeOrChange"),
         personalInput = document.getElementsByClassName("personal-input"),
@@ -28,16 +28,13 @@
             // 保存按钮
             saveInput[i].onclick = function(){
                 if( i != 1 ){
-                    axios.post("http://47.97.204.234:3000/user/alterInfo",{
-                        userId : myId,
+                    axios.post("/user/alterInfo",{
+                        userId : UserInfo.Id,
                         direction : i,
                         content : personalInputElem[i].value,
                     })
                     .then(function(res){
                         console.log(res.data);
-                    })
-                    .catch(function(error){
-                        console.log(error);
                     })
                 }else{
                     selectGender();
@@ -51,9 +48,9 @@
 
     // 获取信息，并填写在个人主页里
     function getUserPersonalInfo(){
-        axios.get("http://47.97.204.234:3000/user/getInfo",{
+        axios.get("/user/getInfo",{
             params : {
-                userId : myId,
+                userId : UserInfo.Id,
             }
         })
         .then(function(res){
@@ -73,9 +70,6 @@
             introduction.innerHTML = res.data.info.resume;
 
         })
-        .catch(function(error){
-            console.log(error);
-        })
     }
 
     // 上传，改头像
@@ -89,26 +83,16 @@
         formData.append("image1",file);
         $.ajax({
             type:'post',
-            url:'http://47.97.204.234:3000/user/alterAvatar',
+            url: baseUrl + '/user/alterAvatar',
             data:formData,
             processData:false,
             contentType:false,
             xhrFields: {
                 withCredentials:true
             },
-
             success:function(data){
                 console.log(data);
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {
-                // 状态码
-                console.log(XMLHttpRequest.status);
-                // 状态
-                console.log(XMLHttpRequest.readyState);
-                // 错误信息   
-                console.log(textStatus);
             }
-
         })
     }
 
@@ -132,8 +116,8 @@
             if(flags == false){
                 alert("没选择性别你保存个啥");
             }else{
-                axios.post("http://47.97.204.234:3000/user/alterInfo",{
-                    userId : myId,
+                axios.post("/user/alterInfo",{
+                    userId : UserInfo.Id,
                     direction : 1,
                     content : gender,
                 })
@@ -146,22 +130,15 @@
     var toMyHome = document.getElementsByClassName("my-home")[0],
         toIndex = document.getElementsByClassName("back-to-index")[0];
 
-    toMyHome.onclick = function(){
+    toMyHome.onclick = function(){ // 来到个人主页
         personal.style.display = "block";
         homeIndex.style.display = "none";
         getUserPersonalInfo();
     }
 
-    toIndex.onclick = function(){
+    toIndex.onclick = function(){ // 返回首页
         personal.style.display = "none";
         homeIndex.style.display = "block";
-    }
-
-    //测试
-    var testBtn = document.getElementById("test");
-
-    testBtn.onclick = function(){
-        getUserPersonalInfo();
     }
 
 

@@ -48,7 +48,7 @@
     font-size: 16px;
     cursor: pointer;
 }
-
+/* -------------------------文章部分 */
 .home-left .main-list .list-tabs span.active{
     font-weight: 500;    
     color: #0084ff;
@@ -126,6 +126,17 @@
     margin-right: 24px;
 }
 
+
+.home-left .main-list .article-child .uselessBtn{
+    opacity: 0;
+}
+
+.home-left .main-list .article-child:hover .uselessBtn{
+    animation: fadeIn 0.25s linear forwards;
+}
+
+
+/* -------------------------评论部分 */
 .home-left .main-list .comment-all{
     border: 1px solid #ebebeb;
     box-shadow: 0 1px 3px rgba(26,26,26,.1);
@@ -146,7 +157,6 @@
 }
 
 .home-left .main-list .comment-list li{
-    height: 82px;
     padding: 12px 0 10px 0;
     border-bottom: 1px solid #f6f6f6;
     font-size: 15px;
@@ -154,17 +164,26 @@
 }
 
 .home-left .main-list .comment-list li .info{
-    display: flex;
-    justify-content: flex-start;
     margin: 0 0 4px 0;
 }
 
 
 .home-left .main-list .comment-list li .info .commentator-avatar{
-    display: block;
+    display: inline-block;
     width: 24px;
     height: 24px;
     margin-right: 8px;
+}
+
+.home-left .main-list .comment-list li .info .commentator-nickname{
+    display: inline-block;
+    transform: translateY(-7px);
+}
+
+.home-left .main-list .comment-list li .info .comment-time{
+    float: right;
+    font-size: 13px;
+    color: gray;
 }
 
 .home-left .main-list .comment-list li .comment-content{
@@ -173,6 +192,35 @@
 
 .home-left .main-list .comment-list li .gray-btn-list{
     margin-left: 30px;
+    display: block;
+}
+
+.home-left .main-list .comment-list .like-comment i{
+    margin-right: 5px;
+}
+
+.home-left .main-list .pagination{
+    border-top: 1px solid #ebebeb;
+    padding: 16px 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.home-left .main-list .pagination button{
+    color: #1a1a1a;
+    transition: color .2s;
+    padding: 0 15px;
+    display: inline-block;
+    font-size: 14px;
+}
+.home-left .main-list .pagination button:hover{
+    color: #175199;
+}
+
+.home-left .main-list .pagination button.active,
+.home-left .main-list .pagination button.active:hover{
+    color: #8590a6;
+    cursor: default;
 }
 
 .home-left .main-list .write-comment{
@@ -195,9 +243,349 @@
     height: 100%;
 }
 
+/* -----------------评论回复部分 */
+
+.comment-respond,
+.chat{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26,26,26,.65);
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    display: none;
+    z-index: 200;
+}
+
+.respond-container,
+.chat-box{
+    background-color: #fff;
+    width: 688px;
+    height: calc(100vh - 50px);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+}
+
+.respond-container .respond-container-head{
+    font-size: 15px;
+    font-weight: 600;
+    padding: 0 20px;
+    border-bottom: 1px solid #f6f6f6;
+    height: 50px;
+    line-height: 50px;
+}
+
+.this-comment{
+    padding: 12px 20px 10px;
+}
+.comment-respond .res-time{
+    float: right;
+    color: gray;
+    font-size: 13px;
+}
+
+.comment-respond .res-avatar{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: pink;
+    margin-right: 8px;
+}
+
+.comment-respond .res-respondent-avatar img{
+    width: 100%;
+    height: 100%;
+}
+
+.comment-respond .res-content{
+    margin-left: 36px;
+}
+
+.comment-respond .gray-btn-list{
+    margin-left: 36px;
+    display: block;
+}
+
+.comment-respond .gray-btn-list .gray-button{
+    margin-right: 10px;
+}
+
+.comment-respond .gray-btn-list .gray-button i{
+    margin-right: 5px;
+}
+
+.gray-btn-list .gray-button.active{
+    color: #0084ff;
+}
+
+.parting-line{
+    height: 10px;
+    background-color: #f6f6f6;
+}
+
+.comment-respond .respond-head{
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+div.respond-list-container{
+    padding: 0 20px;
+    max-height: 65vh;
+    overflow-y: auto;
+}
+
+.respond-list li{
+    padding: 12px 0 10px 0;
+    border-bottom: 1px solid #f6f6f6;
+}
+
+.respond-list li:last-child{
+    margin-bottom: 50px;
+}
+
+.this-comment .res-comment-head .res-avatar img{
+    width: 100%;
+    height: 100%;
+}
+
+.comment-respond  .res-nickname{
+    display: inline-block;
+    transform: translateY(-7px);
+}
+
+button.open-respond,
+button.delete-comment,
+button.delete-respond{
+    opacity: 0;
+}
+
+.comment-list li:hover button.open-respond,
+.comment-list li:hover button.delete-comment,
+.respond-list li:hover button.delete-respond{
+    animation: fadeIn 0.25s linear forwards;
+}
+
+.comment-respond .no-respond{
+    color: #8590a6;
+    text-align: center;
+}
+
+.write-respond{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 12px 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.write-respond .respond-input{
+    width: 500px;
+    border: 1px solid #8590a6;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 6px 12px;
+}
+
+.write-respond .respond-input input{
+    width: 95%;
+}
+
 
 .home-right{
     width: 296px;
     height: 300px;
-    background-color: turquoise;
+}
+
+.home-right .right-list{
+    margin-bottom: 10px;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(26,26,26,.1);
+    box-sizing: border-box;
+}
+
+.home-right .write-nav-top{
+    padding: 20px 15px;
+    border-bottom: 1px solid #f6f6f6;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-right .write-nav-top div{
+    cursor: pointer;
+    text-align: center;
+}
+
+.home-right .write-nav-top i{
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 12px;
+}
+
+.home-right .write-nav-top div:nth-child(1) i{
+    background: url(../img/index/respond_32.png) 9.5px 10px/20px no-repeat #E1F1FF;
+}
+
+.home-right .write-nav-top div:nth-child(2) i{
+    background: url(../img/index/vedio_32.png) 9px 9px/24px no-repeat #FFF3E2;
+}
+
+.home-right .write-nav-top div:nth-child(3) i{
+    background: url(../img/index/write_32.png) 11px 10px/18px no-repeat #FEF9E2;
+}
+
+.home-right .write-nav-top div:nth-child(4) i{
+    background: url(../img/index/thinking_32.png) 10px 9px/20px no-repeat #E5F7F7;
+}
+
+.home-right .write-nav-top span{
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    color: #444;
+    white-space: nowrap;
+}
+
+.home-right .write-nav-bottom{
+    display: flex;
+}
+
+.home-right .write-nav-bottom div{
+    width: 50%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 16px 0;
+    font-size: 14px;
+    color: #8590a6;
+    cursor: pointer;
+}
+
+.home-right .write-nav-bottom div:hover{
+    color: #175199;
+}
+
+.home-right .create-entrance{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height:52px;
+}
+
+.home-right .create-entrance .create-left{
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+}
+
+.home-right .create-entrance .create-left i{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url(../img/index/creator_16.png) 0 0 / cover no-repeat;
+}
+
+.home-right .create-entrance .create-left span{
+    cursor: pointer;
+    color: #8590a6;
+}
+
+.home-right .create-entrance .create-right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.home-right .create-entrance .create-right span:nth-child(1){
+    color: #0084ff;
+    margin-right: 5px;
+}
+
+.home-right .sidebar-category ul{
+    margin:20px 0;
+    padding: 0 10px;
+}
+
+.home-right .sidebar-category li{
+    float: left;
+    width: 33%;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.home-right .sidebar-category li i{
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-color: pink;
+    margin: 0 auto 10px auto;
+}
+
+.home-right .sidebar-category li span{
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    color: #8590a6;
+}
+
+.home-right .sidebar-category li:nth-child(1) i{
+    background: url(../img/index/Live_32.png) 0 0 / contain no-repeat; 
+}
+.home-right .sidebar-category li:nth-child(1):hover span{
+    color: #FFCF00;
+}
+
+.home-right .sidebar-category li:nth-child(2) i{
+    background: url(../img/index/BookStore_32.png) 0 0 / contain no-repeat; 
+}
+.home-right .sidebar-category li:nth-child(2):hover span{
+    color: #43D480;
+}
+
+.home-right .sidebar-category li:nth-child(3) i{
+    background: url(../img/index/yuanzhuo_32.png) 0 0 / contain no-repeat; 
+}
+.home-right .sidebar-category li:nth-child(3):hover span{
+    color: #0084ff;
+}
+
+
+.home-right .sidebar-category li:nth-child(4) i{
+    background: url(../img/index/pen_32.png) 0 0 / contain no-repeat; 
+}
+.home-right .sidebar-category li:nth-child(4):hover span{
+    color: #0084ff;
+}
+
+.home-right .sidebar-category li:nth-child(5) i{
+    background: url(../img/index/payForCon_32.png) 0 0 / contain no-repeat; 
+}
+.home-right .sidebar-category li:nth-child(5):hover span{
+    color: #5478F0;
+}
+
+.home-right .sidebar-category li:nth-child(6) i{
+    background: url(../img/index/baike_32.png) 0 0 / contain no-repeat; 
+}
+.home-right .sidebar-category li:nth-child(6):hover span{
+    color: #5478F0;
 }

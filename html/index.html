@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>知乎</title>
+    <link rel="shortcut icon" href="../img/zhi_32.png">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1776848_2lv8c99p9w6.css">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="../css/head.css">
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/personal.css">
+    <link rel="stylesheet" href="../css/chat.css">
     <script src="../js/jQuery.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
@@ -162,9 +164,9 @@
                                         <span class="comment-num">2333</span>
                                         <span class="comment-text">条评论</span>
                                     </button>
-                                    <button class="gray-button share"><i class="iconfont icon-zhifeiji"></i> 分享</button>
-                                    <button class="gray-button collection"><i class="iconfont icon-xing"></i> 收藏</button>
-                                    <button class="gray-button like"><i class="iconfont icon-bqxin"></i> 喜欢</button>
+                                    <button class="gray-button uselessBtn"><i class="iconfont icon-zhifeiji"></i> 分享</button>
+                                    <button class="gray-button uselessBtn"><i class="iconfont icon-xing"></i> 收藏</button>
+                                    <button class="gray-button uselessBtn"><i class="iconfont icon-bqxin"></i> 喜欢</button>
                                     <button class="gray-button more">···</button>
                                 </span>
                             </div>
@@ -177,6 +179,7 @@
                                         <div class="info">
                                             <img src="" alt="" class="commentator-avatar">
                                             <div class="commentator-nickname">ccc</div>
+                                            <div class="comment-time">2020/05/05</div>
                                         </div>
                                         <div class="comment-content">神评论</div>
                                         <div class="gray-btn-list">
@@ -207,7 +210,130 @@
                 </div>
             </div>
             <div class="home-right">
-                <button class="blue-button">测试按钮</button>
+                <div class="right-list write-function">
+                    <div class="write-nav-top">
+                        <div><i></i><span>回答问题</span></div>
+                        <div><i></i><span>发视频</span></div>
+                        <div><i></i><span>写文章</span></div>
+                        <div><i></i><span>写想法</span></div>
+                    </div>
+                    <div class="write-nav-bottom">
+                        <div>稍后答</div>
+                        <div>草稿箱</div>
+                    </div>
+                </div>
+                <div class="right-list create-entrance">
+                    <div class="create-left">
+                        <i></i>
+                        <span>创作者中心</span>
+                    </div>
+                    <div class="create-right">
+                        <span>去开通</span>
+                        <span> ></span>
+                    </div>
+                </div>
+                <div class="right-list sidebar-category">
+                    <ul class="clearfix">
+                        <li><i></i><span>Live</span></li>
+                        <li><i></i><span>书店</span></li>
+                        <li><i></i><span>圆桌</span></li>
+                        <li><i></i><span>专栏</span></li>
+                        <li><i></i><span>付费咨询</span></li>
+                        <li><i></i><span>百科</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="comment-respond">
+            <div class="respond-container">
+                <div class="respond-container-head">查看对话</div>
+                <div class="this-comment">
+                    <div class="res-comment-head">
+                        <span class="res-avatar res-commentotar-avatar"><img src="" alt="" class="res-commentotar-avatar-child"></span>
+                        <span class="res-nickname res-commentotar-nickname">nickname</span>
+                        <span class="res-time res-commentotar-time">2020</span>
+                    </div>
+                    <div class="res-content-container">
+                        <span class="res-content res-content-comment">666</span>
+                    </div>
+                </div>
+                <div class="parting-line"></div>
+                <div class="respond-list-container">
+                    <div class="respond-head">
+                        <span class="comment-respond-num"></span> 条回复
+                    </div>
+                    <ul class="respond-list">
+                        <!-- <li>
+                            <div class="respondent-head">
+                                <span class="res-avatar res-respondent-avatar"><img src="" alt="" class="res-respondent-avatar-child"></span>
+                                <span class="res-nickname res-respondent-nickname">nickname</span>
+                                <span class="res-time res-respondent-time">2020</span>
+                            </div>
+                            <div class="res-content-container">
+                                <span class="res-content respondent-content">999</span>
+                            </div>
+                            <div class="gray-btn-list">
+                                <button class="gray-button like-respond">
+                                    <i class="iconfont icon-zan"></i>
+                                    <span class="respond-like-num">100</span>
+                                </button>
+                                <button class="gray-button dislike-respond">
+                                    <i class="iconfont icon-cai"></i>
+                                </button>
+                            </div>
+                        </li> -->
+                    </ul>
+                    <div class="write-respond">
+                        <div class="respond-input"><input type="text" placeholder="写下你的回复..." class="respond-input-child"></div>
+                        <button class="blue-button  submit-respond">发布</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="chat">
+            <div class="chat-box">
+                <div class="chat-box-title">
+                    <span class="chat-nickname">逼乎小管家</span>
+                </div>
+                <div class="message-box-container">
+                    <div class="message-box">
+                        <!-- <div class="other-message message">
+                            <div class="message-time">2020/05/10 00:00</div>
+                            <div class="message-body">
+                                <div class="msg-other-avatar-container msg-avatar">
+                                    <img src="" alt="" class="msg-other-avatar">
+                                </div>
+                                <div class="msg-other-content-container msg-content">
+                                    <div class="msg-other-content">对方发的聊天信息</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-message message">
+                            <div class="message-time">2020/05/10 00:00</div>
+                            <div class="message-body my-msg-body">
+                                <div class="msg-other-avatar-container msg-avatar">
+                                    <img src="" alt="" class="msg-my-avatar">
+                                </div>
+                                <div class="msg-my-content-container msg-content">
+                                    <div class="msg-my-content">我发的聊天信息</div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="input-box">
+                    <div class="tool-bar">
+                        <div class="emoticon-tool"></div>
+                    </div>
+                    <div class="input-container">
+                        <textarea name="" id="" cols="30" rows="10" class="chat-input"></textarea>
+                    </div>
+                    <div class="input-box-footer">
+                        <div>按 Enter 键发送</div>
+                        <button class="blue-button send-msg">发送</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -296,11 +422,12 @@
                 <button class="blue-button">返回首页</button>
             </div>
         </div>
-        <div id="test" style="cursor: pointer; background-color: pink; width: 100px; height: 30px;">测试按钮</div>
     </div>
+    <script src="../js/common.js"></script>
     <script src="../js/login.js"></script>
     <script src="../js/head.js"></script>
     <script src="../js/home.js"></script>
     <script src="../js/personal.js"></script>
+    <script src="../js/chat.js"></script>
 </body>
 </html>

@@ -152,6 +152,11 @@
     display: none;
 }
 
+.head-fixed .user-info .dir-msg.active{
+    display: block;
+    animation: fadeIn 0.3s linear forwards;
+}
+
 .head-fixed .user-info .dir-msg .user-msg button{
     width: 100%;
     display: inline-block;
@@ -234,6 +239,11 @@
     border-radius: 4px;
     box-shadow: 0 5px 20px rgba(26,26,26,.1);
     display: none;
+}
+
+.head-fixed .user-info .avatar-div .user-menu.active{
+    display: block;
+    animation: fadeIn 0.3s linear forwards;
 }
 
 .head-fixed .user-info .avatar-div .user-menu div{

@@ -1,14 +1,4 @@
-
-// 阻止默认事件
-function cancelHandler(event){  
-    if(event.preventDefault){
-        event.preventDefault();
-    }else{
-        event.returnValue = false;
-    }
-}
-
-    axios.defaults.withCredentials = true;
+/*----------------（退出）登录---------------- */
 
     var signIn = document.querySelector(".sign-in"),
         signInBtn = document.querySelector(".sign-in .login-button");
@@ -18,15 +8,9 @@ function cancelHandler(event){
         sAhPassword = document.querySelector(".sign-in .password i");
     var outLoginBtn = document.querySelector(".sign-in .login-button.button2");
 
-
-    var myId = 0, // 用户id
-        nowUsername = "", // 目前的用户名
-        nowPassword = ""; // 目前的密码
-
-
 // 登录页面的登录函数
     function login(nowUsername,nowPassword){
-        axios.post("http://47.97.204.234:3000/user/login",{
+        axios.post("/user/login",{
             username : nowUsername,
             password : nowPassword,
         })
@@ -39,54 +23,52 @@ function cancelHandler(event){
                 homeIndex.style.display = "block";
                 headFixed.style.display = "block";
 
-                myId = res.data.userId;
+                UserInfo.Id = res.data.userId;
                 inputAccount.value = "";
                 inputPassword.value = "";
                 
-
-                outFriends(myId); //登录成功--加载好友列表，该函数代码在head.js里
+                outFriends(); //登录成功--加载好友列表，该函数代码在head.js里
                 getUserInfo();
-                if( articleFlags == false){
-                    articleFlags = true;
-                    getArticle();
-                }
+                getArticle();
             }else{
                 console.log(res.data);
-                console.log(res.status);
             }
         })
     }
 
 // 退出登录
-    function outLogin(nowUsername,nowPassword){
-        axios.post("http://47.97.204.234:3000/user/logout",{
-            username : nowUsername,
-            password : nowPassword,
+    function outLogin(){
+        axios.post("/user/logout",{
+            username : UserInfo.Username,
+            password : UserInfo.Password,
         })
         .then(function (res) {
             console.log(res.data);
-            console.log(res.status);
-            myId = 0;
+            
             signIn.style.display = "flex";
             homeIndex.style.display = "none";
             headFixed.style.display = "none";
             personal.style.display = "none";
-            nowUsername = "";
-            nowPassword = "";
+
+            UserInfo.Username = "";
+            UserInfo.Password = "";
+            UserInfo.Id = '';
         })
     }
 
 // 登录页面的登录按钮
     signInBtn.onclick = function(e){
         cancelHandler(e);
-        nowUsername = inputAccount.value;
-        nowPassword = inputPassword.value;
+        var nowUsername = inputAccount.value;
+        var nowPassword = inputPassword.value;
         login(nowUsername,nowPassword);
     }
 
-// 登录页面的退出登录按钮，目前作测试用，日后删除
+// 登录页面的退出登录按钮，不删除了，见记录.md
     outLoginBtn.onclick = function(e){
         cancelHandler(e);
+        var nowUsername = inputAccount.value;
+        var nowPassword = inputPassword.value;
         outLogin(nowUsername,nowPassword);
     }
 
